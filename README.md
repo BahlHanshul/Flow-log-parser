@@ -50,18 +50,6 @@ The lookup table contains mappings of destination ports and protocols to tags, a
 - **tag_counts.csv**: A CSV file with counts for each tag.
 - **port_protocol_counts.csv**: A CSV file with counts for each port/protocol combination.
 
-## Example Output Files
-
-### `tag_counts.csv`
-```csv
-Tag,Count
-sv_P2,1
-sv_P1,2
-sv_P4,1
-email,3
-Untagged,9
-###
-
 
 ## **Code Walkthrough**
 
