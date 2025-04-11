@@ -60,3 +60,42 @@ sv_P1,2
 sv_P4,1
 email,3
 Untagged,9
+
+
+## **Code Walkthrough**
+
+### **Key Functions**
+
+- **`load_lookup_table(filepath)`**:
+  - Reads the CSV lookup table, mapping `(dstport, protocol)` pairs to their corresponding tags.
+
+- **`parse_flow_log(filepath, lookup)`**:
+  - Reads the flow log file line by line, processes valid lines, and categorizes them using the lookup table.
+  - Tracks counts of each tag and port/protocol combination.
+
+- **`write_tag_counts(tag_counts, filepath="tag_counts.csv")`**:
+  - Writes the tag counts to the `tag_counts.csv` file.
+
+- **`write_combo_counts(combo_counts, filepath="port_protocol_counts.csv")`**:
+  - Writes the port/protocol counts to the `port_protocol_counts.csv` file.
+
+---
+
+### **Flow Log Parsing**
+
+The program reads each line of the flow log, extracts relevant data (destination port, protocol number), and uses the lookup table to find the associated tag. It then counts the occurrences of each tag and port/protocol combination.
+
+---
+
+## **Testing and Validation**
+
+### **Test Cases**
+- **Sample Flow Log**: I used the provided sample flow log data for testing.
+- **Edge Case**: Logs with fewer than 14 fields are skipped.
+- **Case Sensitivity**: The tag matching is case-insensitive.
+
+---
+
+## **Conclusion**
+
+This program provides a simple yet efficient way to process AWS VPC flow log data and classify it based on predefined tags from a lookup table. It's designed to be easy to run and does not require complex dependencies, making it suitable for deployment in environments with limited resources.
